@@ -23,8 +23,7 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({"sender"})
-    private List<Message> messages;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"user"})
+    private List<Chat> chatList;
 }

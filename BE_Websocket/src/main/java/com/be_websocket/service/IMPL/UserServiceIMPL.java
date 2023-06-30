@@ -1,8 +1,9 @@
-package com.be_websocket.service;
+package com.be_websocket.service.IMPL;
 
 import com.be_websocket.dto.request.UserDTO;
 import com.be_websocket.model.User;
 import com.be_websocket.repository.UserRepository;
+import com.be_websocket.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
