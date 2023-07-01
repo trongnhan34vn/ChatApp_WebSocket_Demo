@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const navigate = useNavigate()
-    const [cookies, setCookies] = useCookies(['email', 'fullName'])
+    const [cookies, setCookies] = useCookies(['email', 'fullName', 'id'])
     const currentUser = useSelector(userSelector).currentUser;
     const dispatch = useDispatch();
     const [inputValue, setInputValue] = useState({
@@ -25,6 +25,7 @@ const Login = () => {
     }
 
     useEffect(() => {
+        currentUser && setCookies('id', currentUser.id, { path: '/', maxAge: 86400 })
         currentUser && setCookies('email', currentUser.email, { path: '/', maxAge: 86400 })
         currentUser && setCookies('fullName', currentUser.fullName, { path: '/', maxAge: 86400 })
         if (currentUser !== null) {
